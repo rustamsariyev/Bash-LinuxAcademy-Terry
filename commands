@@ -30,3 +30,41 @@ COLUMNS=82
 [root@kamilbabayev1c bin]# env | grep COLUM
 [root@kamilbabayev1c bin]# printenv | grep COLUM
 
+# Lecture: Special Characters - Quotes and Escapes
+[root@kamilbabayev1c bin]# echo $COLUMNS
+82
+[root@kamilbabayev1c bin]# echo "$COLUMNS"
+82
+[root@kamilbabayev1c bin]# echo "\$COLUMNS"
+$COLUMNS
+[root@kamilbabayev1c bin]# echo "\$COL $DIM $COR"
+$COL
+[root@kamilbabayev1c bin]# echo '$COL $DIM $COR'
+$COL $DIM $COR
+[root@kamilbabayev1c bin]# # \ escape character
+[root@kamilbabayev1c bin]# echo "$DOL"
+
+[root@kamilbabayev1c bin]# export DOL="MyValue"
+[root@kamilbabayev1c bin]# echo $DOL
+MyValue
+[root@kamilbabayev1c bin]# echo "\"
+>
+> ^C
+[root@kamilbabayev1c bin]# echo "\""
+"
+[root@kamilbabayev1c bin]# echo "\\"
+\
+[root@kamilbabayev1c bin]# # \ escape special character
+[root@kamilbabayev1c bin]# # ' Signle quot escape special character
+[root@kamilbabayev1c bin]# echo '$DOL'
+$DOL
+[root@kamilbabayev1c bin]# echo "\$DOL"
+$DOL
+[root@kamilbabayev1c bin]# echo "`date`"
+Tue Mar 31 13:18:40 UTC 2020
+[root@kamilbabayev1c bin]# echo `date`
+Tue Mar 31 13:18:50 UTC 2020
+[root@kamilbabayev1c bin]# echo '\$DOL'
+\$DOL
+[root@kamilbabayev1c bin]#
+
