@@ -1,0 +1,21 @@
+n Unity's Javascript and C#, int is a type. It is short for "integer", which means whole numbers. You use int to specify that you want your variable to contain only whole numbers.
+
+For example, 3 is an integer. 3.25 is not an integer.
+
+When programming, your variables generally have a specific type, and you should select the appropriate type according to what you want to use the variable for. Four of the most common types are:
+
+int : An integer (eg, 3).
+Can be a whole number between -2147483648 and 2147483647
+
+float : A fractional (floating point) number (eg, 3.25907).
+Can be a number between roughly 1.5 x 10^45 to 3.4 10^38, in floating point format.
+
+String : A sequence of characters (eg, "Hello User 6555")
+(no specified maximum length, as far as I'm aware!)
+
+boolean : A true/false value.
+Can only contain either the value true or false.
+
+There are many more types that you can use for variables, including other numeric types for more specific situations, and other more complex types such as structs and classes which you will need to learn about in order to make progress using Unity.
+
+Good luck :)
