@@ -21,4 +21,12 @@ expr: syntax error
 [root@kamilbabayev1c ~]# expr \( 2 + 2 \) \* 4
 16
 
+#Often, on modern systems, the $COLUMNS and $LINES variables are not environment variables.
+
+[root@kamilbabayev1c bin]# set | grep COLUM
+COLUMNS=82
+    \typeset width=${COLUMNS:-78};
+    \typeset width=${COLUMNS:-78};
+[root@kamilbabayev1c bin]# env | grep COLUM
+[root@kamilbabayev1c bin]# printenv | grep COLUM
 
