@@ -1,0 +1,53 @@
+root@kamilbabayev1c bin]#
+[root@kamilbabayev1c bin]# echo ~
+/root
+[root@kamilbabayev1c bin]# echo sh{ot,ort,oot}
+shot short shoot
+[root@kamilbabayev1c bin]# echo st{it,al}l
+stitl stall
+[root@kamilbabayev1c bin]# env | grep PATH
+PATH=/usr/local/rvm/gems/ruby-2.4.1/bin:/usr/local/rvm/gems/ruby-2.4.1@global/bin:/usr/local/rvm/rubies/ruby-2.4.1/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/rvm/bin:/root/bin
+GEM_PATH=/usr/local/rvm/gems/ruby-2.4.1:/usr/local/rvm/gems/ruby-2.4.1@global
+[root@kamilbabayev1c bin]# echo ~
+/root
+[root@kamilbabayev1c bin]# printfs ~
+-bash: printfs: command not found
+[root@kamilbabayev1c bin]# printf ~
+/root[root@kamilbabayev1c bin]#
+[root@kamilbabayev1c bin]#
+[root@kamilbabayev1c bin]# export NEWPATH=$PATH:~
+[root@kamilbabayev1c bin]# env | grep NEW
+NEWPATH=/usr/local/rvm/gems/ruby-2.4.1/bin:/usr/local/rvm/gems/ruby-2.4.1@global/bin:/usr/local/rvm/rubies/ruby-2.4.1/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/rvm/bin:/root/bin:/root
+[root@kamilbabayev1c bin]# env | grep PATH
+PATH=/usr/local/rvm/gems/ruby-2.4.1/bin:/usr/local/rvm/gems/ruby-2.4.1@global/bin:/usr/local/rvm/rubies/ruby-2.4.1/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/rvm/bin:/root/bin
+GEM_PATH=/usr/local/rvm/gems/ruby-2.4.1:/usr/local/rvm/gems/ruby-2.4.1@global
+NEWPATH=/usr/local/rvm/gems/ruby-2.4.1/bin:/usr/local/rvm/gems/ruby-2.4.1@global/bin:/usr/local/rvm/rubies/ruby-2.4.1/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/rvm/bin:/root/bin:/root
+[root@kamilbabayev1c bin]# env | grep PWD
+OLDPWD=/root
+PWD=/root/bin
+[root@kamilbabayev1c bin]# echo ~+
+/root/bin
+[root@kamilbabayev1c bin]# pwd
+/root/bin
+[root@kamilbabayev1c bin]# echo ~-
+/root
+[root@kamilbabayev1c bin]#
+[root@kamilbabayev1c bin]# echo "${!HO*}*
+> ^C
+[root@kamilbabayev1c bin]# echo "${!HO*}"
+HOME HOSTNAME HOSTTYPE
+[root@kamilbabayev1c bin]# export CARNAME=something &&&CARNAME
+-bash: syntax error near unexpected token `&'
+[root@kamilbabayev1c bin]# export CARNAME=somthing && echo $CARNAME
+somthing
+[root@kamilbabayev1c bin]# echo "${VARNAME:=valuesomething}"
+valuesomething
+[root@kamilbabayev1c bin]# echo $VARNAME
+valuesomething
+[root@kamilbabayev1c bin]# echo "$[ 2 * 2 ]"
+4
+[root@kamilbabayev1c bin]# echo "$[ 2 \* 2 ]"
+-bash: 2 \* 2 : syntax error: invalid arithmetic operator (error token is "\* 2 ")
+[root@kamilbabayev1c bin]# commands-shell-expansion.txt
+-bash: commands-shell-expansion.txt: command not found
+
