@@ -1,0 +1,61 @@
+# Lecture: Types of Variables (Implicit vs. Explicit Definition)
+[root@kamilbabayev1c bin]# MYVAR=4
+[root@kamilbabayev1c bin]# echo $MYVAR
+4
+[root@kamilbabayev1c bin]# echo `expr $MYVAR + 5`
+9
+[root@kamilbabayev1c bin]# decllare -p MYVAR
+-bash: decllare: command not found
+[root@kamilbabayev1c bin]# declare -p MYVAR
+declare -- MYVAR="4"
+[root@kamilbabayev1c bin]# MYVAR1="Name"
+[root@kamilbabayev1c bin]# echo $MYVAR1
+Name
+[root@kamilbabayev1c bin]# echo `expr $MYVAR1 + 5`
+expr: non-integer argument
+
+[root@kamilbabayev1c bin]# declare -i NEWVAR=10
+[root@kamilbabayev1c bin]# declare -p NEWVAR
+declare -i NEWVAR="10"
+[root@kamilbabayev1c bin]# echo $MYVAR
+4
+[root@kamilbabayev1c bin]# MYVAR="New Value"
+[root@kamilbabayev1c bin]# echo $MYVAR
+New Value
+[root@kamilbabayev1c bin]# NEWWAR="Something"
+[root@kamilbabayev1c bin]# echo $NEWVAR
+10
+[root@kamilbabayev1c bin]# NEWVAR="Something"
+[root@kamilbabayev1c bin]# echo $NEWVAR
+0
+[root@kamilbabayev1c bin]# declare -p NEWVAR
+declare -i NEWVAR="0"
+[root@kamilbabayev1c bin]# NEWVAR=111
+[root@kamilbabayev1c bin]# echo $NEWVAR
+111
+[root@kamilbabayev1c bin]# declare +i NEWVAR
+[root@kamilbabayev1c bin]# declare -p NEWVAR
+declare -- NEWVAR="111"
+[root@kamilbabayev1c bin]# NEWVAR="Something"
+[root@kamilbabayev1c bin]# echo $NEWVAR
+Something
+[root@kamilbabayev1c bin]# declare -r READONLY="This is a string we cannot overwrite"
+[root@kamilbabayev1c bin]# declare -p READONLY
+declare -r READONLY="This is a string we cannot overwrite"
+[root@kamilbabayev1c bin]# READONLY="New Value"
+-bash: READONLY: readonly variable
+[root@kamilbabayev1c bin]#
+[root@kamilbabayev1c bin]# declare +r READONLY
+-bash: declare: READONLY: readonly variable
+[root@kamilbabayev1c bin]# echo `expr $NEWVAR + 5 `
+expr: non-integer argument
+
+[root@kamilbabayev1c bin]# readonly MYREADONLY="This String"
+[root@kamilbabayev1c bin]# declare -p MYREADONLY
+declare -r MYREADONLY="This String"
+[root@kamilbabayev1c bin]# MYREADONLY="Something new"
+-bash: MYREADONLY: readonly variable
+[root@kamilbabayev1c bin]# declare +r MYREADONLY
+-bash: declare: MYREADONLY: readonly variable
+[root@kamilbabayev1c bin]#
+
