@@ -1,0 +1,38 @@
+[root@kamilbabayev1c bin]# MYARRAY=("First" "Second" "Third")
+[root@kamilbabayev1c bin]# echo $MYARRAY
+First
+[root@kamilbabayev1c bin]# echo ${MYARRAY[0]}
+First
+[root@kamilbabayev1c bin]# echo ${MYARRAY[1]}
+Second
+[root@kamilbabayev1c bin]# echo ${MYARRAY[2]}
+Third
+[root@kamilbabayev1c bin]# echo ${MYARRAY[3]}
+
+[root@kamilbabayev1c bin]# echo ${MYARRAY[6]}
+
+[root@kamilbabayev1c bin]# echo ${MYARRAY[*]}
+First Second Third
+[root@kamilbabayev1c bin]# MYARRAY[3]="Fourth"
+[root@kamilbabayev1c bin]# echo ${MYARRAY[3]}
+Fourth
+[root@kamilbabayev1c bin]# echo ${MYARRAY[*]}
+First Second Third Fourth
+[root@kamilbabayev1c bin]# NEWARRAY=("First","Second","Third")
+[root@kamilbabayev1c bin]# echo $NEWARRAY
+First,Second,Third
+[root@kamilbabayev1c bin]# echo ${NEWARRAY[0]}
+First,Second,Third
+[root@kamilbabayev1c bin]# echo ${NEWARRAY[1]}
+
+[root@kamilbabayev1c bin]# echo ${NEWARRAY[2]}
+
+[root@kamilbabayev1c bin]# NEWARRAY=("New Value" "Second New" "Third Value")
+[root@kamilbabayev1c bin]# echo $NEWARRAY
+New Value
+[root@kamilbabayev1c bin]# echo $NEWARRAY[1]
+New Value[1]
+[root@kamilbabayev1c bin]# echo ${NEWARRAY[1]}
+Second New
+[root@kamilbabayev1c bin]# echo ${NEWARRAY[2]}
+Third Value
