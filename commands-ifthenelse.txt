@@ -1,0 +1,130 @@
+[root@kamilbabayev1c bin]# cat ifthenelse.sh
+#!/bin/bash
+#
+# Simple example of if then else and nested if statements
+
+echo "Enter a number between 1 and 3: "
+read VALUE
+
+# OR condition
+
+if [[ "$VALUE" -eq "1" ]] || [[ "$VALUE" -eq "2" ]] || [[ "$VALUE" -eq 3 ]] ; then
+  echo "You entered $VALUE"
+fi
+[root@kamilbabayev1c bin]# ifthenelse.sh
+Enter a number between 1 and 3:
+1
+You entered 1
+[root@kamilbabayev1c bin]# ifthenelse.sh
+Enter a number between 1 and 3:
+2
+You entered 2
+[root@kamilbabayev1c bin]# ifthenelse.sh
+Enter a number between 1 and 3:
+3
+You entered 3
+[root@kamilbabayev1c bin]#
+
+
+#############################
+
+else statement
+
+[root@kamilbabayev1c bin]# cat ifthenelse.sh
+#!/bin/bash
+#
+# Simple example of if then else and nested if statements
+
+echo "Enter a number between 1 and 3: "
+read VALUE
+
+# OR condition
+
+if [[ "$VALUE" -eq "1" ]] || [[ "$VALUE" -eq "2" ]] || [[ "$VALUE" -eq 3 ]] ; then
+  echo "You entered $VALUE"
+else
+  echo "You didn't follow directions!"
+fi
+[root@kamilbabayev1c bin]# ifthenelse.sh
+Enter a number between 1 and 3:
+1
+You entered 1
+[root@kamilbabayev1c bin]# ifthenelse.sh
+Enter a number between 1 and 3:
+5
+You didn't follow directions!
+[root@kamilbabayev1c bin]# ifthenelse.sh
+Enter a number between 1 and 3:
+name
+You didn't follow directions!
+[root@kamilbabayev1c bin]#
+
+
+
+#################################
+
+/dev/null
+
+[root@kamilbabayev1c bin]# cat ifthenelse.sh
+#!/bin/bash
+#
+# Simple example of if then else and nested if statements
+
+echo "Enter a number between 1 and 3: "
+read VALUE
+
+# OR condition
+# If  you don't want to see error messages using /dev/null  each condition
+if [[ "$VALUE" -eq "1" ]] 2> /dev/null || [[ "$VALUE" -eq "2" ]] 2>/dev/null || [[ "$VALUE" -eq 3 ]] 2> /dev/null ; then
+  echo "You entered $VALUE"
+else
+  echo "You didn't follow directions!"
+fi
+[root@kamilbabayev1c bin]# ifthenelse.sh
+Enter a number between 1 and 3:
+1
+You entered 1
+[root@kamilbabayev1c bin]# ifthenelse.sh
+Enter a number between 1 and 3:
+dad
+You didn't follow directions!
+[root@kamilbabayev1c bin]#
+
+
+##########################################
+elif statements
+
+[root@kamilbabayev1c bin]# cat ifthenelse.sh
+#!/bin/bash
+#
+# Simple example of if then else and nested if statements. This nested if statement does multiple tests within the block.
+
+echo "Enter a number between 1 and 3: "
+read VALUE
+
+# OR condition
+# If  you don't want to see error messages using /dev/null  each condition
+#if [[ "$VALUE" -eq "1" ]] 2> /dev/null || [[ "$VALUE" -eq "2" ]] 2>/dev/null || [[ "$VALUE" -eq 3 ]] 2> /dev/null ; then
+
+# elif statements
+if [[ "$VALUE" -eq "1" ]] 2>/dev/null ; then
+  echo "You entered #1"
+
+elif [[ "$VALUE" -eq "2" ]] 2>/dev/null ; then
+  echo "You successfully entered #2"
+
+elif [[ "$VALUE" -eq "3" ]] 2>/dev/null ; then
+  echo "You entered the 3rd number"
+else
+  echo "You didn't follow directions!"
+fi
+[root@kamilbabayev1c bin]# ifthenelse.sh
+Enter a number between 1 and 3:
+3
+You entered the 3rd number
+[root@kamilbabayev1c bin]# ifthenelse.sh
+Enter a number between 1 and 3:
+mytest
+You didn't follow directions!
+[root@kamilbabayev1c bin]#
+
