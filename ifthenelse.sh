@@ -6,7 +6,7 @@ echo "Enter a number between 1 and 3: "
 read VALUE
 
 # OR condition
-# If  you don't want to see error messages using /dev/null  each condition
+#If  you don't want to see error messages using /dev/null  each condition
 #if [[ "$VALUE" -eq "1" ]] 2> /dev/null || [[ "$VALUE" -eq "2" ]] 2>/dev/null || [[ "$VALUE" -eq 3 ]] 2> /dev/null ; then
 
 # elif statements

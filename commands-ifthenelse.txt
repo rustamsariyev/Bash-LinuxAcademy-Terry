@@ -91,7 +91,7 @@ You didn't follow directions!
 [root@kamilbabayev1c bin]#
 
 
-##########################################
+###########################################
 elif statements
 
 [root@kamilbabayev1c bin]# cat ifthenelse.sh
