@@ -1,0 +1,233 @@
+List all the shell scripts contents of the directory
+File: arrays.sh
+cmdlinevar.sh
+comments.sh
+exit-status.sh
+expressions.sh
+forsample.sh
+ifexpr.sh
+ifstatement-using-or-conditional.sh
+ifthenelse.sh
+readsamples.sh
+simpleif.sh
+substitution.sh
+testfile-if.sh
+varexample.sh - Contents #!/bin/bash
+# Simple array list and loop for display
+
+SERVERLIST=("websrv01" "websrv02" "websrv03" "websrv04")
+COUNT=0
+
+for INDEX in ${SERVERLIST[@]}; do
+  echo "Processing Server: ${SERVERLIST[COUNT]}"
+  COUNT="`expr $COUNT + 1`"
+done
+
+#!/bin/bash
+#
+# Demo of command line values passed in with our shell script
+
+USERNAME=$1
+PASSWORD=$2
+
+echo "The following Username is $USERNAME and Password is $PASSWORD"
+
+
+#echo "The following item was passed in to script at run time $1 $2"
+
+
+
+
+
+
+
+# Execution history file: commands-cmdlinevars.txt
+#!/bin/bash
+
+# This line is intended to be used as a general description of the script and anything that it does
+
+clear  # Clears the screen
+
+# MYUSERNAME="Terry" # The usernamee for this application
+MYUSERNAME="Done"  # New username added later
+
+echo "We are using the default user called: $MYUSERNAME" # Display to the console
+
+DATETIMESTAMP=`date`
+
+echo "This is when the script was run: $DATETIMESTAMP" # This is the timestamp of run
+
+#!/bin/bash
+
+
+# Dump out errors. Stop execution if exit 1 
+set -e
+
+expr 1 + 5 
+
+echo "Exit Status: $?"
+
+rm unknownfile.txt
+
+echo "Exit Status: $?"
+
+expr 10 + 10 
+
+echo "Exit Status: $?"
+#!/bin/bash
+
+# Expression evalutaion
+expr 2 + 2
+
+expr 2 + 2 \* 4
+
+expr \( 2 + 2 \) \* 4
+
+#!/bin/bash
+#
+# this is a demo of the for loop
+
+echo "List all the shell scripts contents of the directory"
+
+SHELLSCRIPTS=`ls *.sh`
+
+for SCRIPT in "$SHELLSCRIPTS" ; do
+  DISPLAY="`cat $SCRIPT`"
+  echo "File: $SCRIPT - Contents $DISPLAY"
+done
+
+#!/bin/bash
+# Test multiple expressions in single if statement
+
+FILENAME=$1
+
+echo "Testing for file $FILENAME and readability"
+# And condition
+if [[ -f $FILENAME ]] && [[ -r $FILENAME ]]
+then 
+  echo "File $FILENAME exists AND is readable"
+fi
+#!/bin/bash
+
+for fname in "a.txt" "b.txt" "c.txt"
+do
+ echo $fname
+ # Or conditional
+ if [ "$fname" = "a.txt" ] | [ "$fname" = "c.txt" ]; then
+ echo "yes!"
+else
+ echo "no!"
+fi
+done
+#!/bin/bash
+#
+# Simple example of if then else and nested if statements
+
+echo "Enter a number between 1 and 3: "
+read VALUE
+
+# OR condition
+#If  you don't want to see error messages using /dev/null  each condition
+#if [[ "$VALUE" -eq "1" ]] 2> /dev/null || [[ "$VALUE" -eq "2" ]] 2>/dev/null || [[ "$VALUE" -eq 3 ]] 2> /dev/null ; then
+
+# elif statements
+if [[ "$VALUE" -eq "1" ]] 2>/dev/null ; then
+  echo "You entered #1"
+
+elif [[ "$VALUE" -eq "2" ]] 2>/dev/null ; then
+  echo "You successfully entered #2"
+
+elif [[ "$VALUE" -eq "3" ]] 2>/dev/null ; then
+  echo "You entered the 3rd number" 
+else 
+  echo "You didn't follow directions!"
+fi
+#!/bin/bash
+# Interactive script for user input.
+
+echo "Enter Your First Name: "
+read FIRSTNAME
+echo "Enter Your Last Name: "
+read LASTNAME
+
+echo ""
+echo "Your Full Name is: $FIRSTNAME $LASTNAME"
+echo ""
+echo "Enter Your Age: "
+read USERAGE
+
+echo "In 10 Years, You will be `expr $USERAGE + 10` years old"
+
+#!/bin/bash
+#
+# Simple if script for guessing a number
+
+echo "Guess the Secret Number"
+echo "======================="
+echo ""
+echo "Enter a Number Between 1 and 5: "
+read GUESS
+
+if [[ $GUESS -eq 3 ]]
+then
+  echo "You Guessed the Correct Number!"
+else
+  echo "You Guessed the Wrong Number!"
+fi
+
+
+# History cmdlines are located in commands-if.txt
+
+#!/bin/bash
+
+# This script is intended to how to do simple substitution
+clear
+
+shopt -s expand_aliases
+
+alias TODAY="date"
+alias UFILES="find /home -user cloud_user"
+
+TODAYSDATE=`date`
+USERFILES=`find /home -user cloud_user`
+
+echo "Today's Date: $TODAYSDATE"
+echo "All files Owned by USER: $USERFILES"
+
+A=`TODAY`
+B=`UFILES`
+
+echo "With Alias, TODAY is: $A"
+echo "With Alias, UFILES is: $B"
+
+#!/bin/bash
+#
+# Tests for existence of indicated file name
+
+#FILENAME="mytext.txt"
+FILENAME="$1"
+echo "Testing for the Existence of a File called $FILENAME"
+
+
+#if [[ -a $FILENAME ]]
+# Test condition !
+if [[ ! -a $FILENAME ]]
+then
+  echo "File $FILENAME Does NOT Exist!"
+  #echo "File $FILENAME Does Indeed Exist!"
+#else
+#  echo "File $FILENAME Doesn't Indeed Exist!"
+fi
+
+#!/bin/bash
+
+MYUSERNAME="username"
+MYPASSWORD="password"
+STARTOFSCRIPT=`date`
+
+echo "My login name for this application is: $MYUSERNAME"
+echo "My login password for this application is: $MYPASSWORD"
+echo "I started this script at: $STARTOFSCRIPT"
+
+ENDOFSCRIPT=`date`
+echo "I ended this script at: $ENDOFSCRIPT" 
