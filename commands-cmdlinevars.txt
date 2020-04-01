@@ -1,0 +1,20 @@
+[root@kamilbabayev1c bin]# passing-variables-to-scripts-at-comamndline.sh hello
+The following item was passed in to script at run time hello
+[root@kamilbabayev1c bin]# passing-variables-to-scripts-at-comamndline.sh Rustam
+The following item was passed in to script at run time Rustam
+[root@kamilbabayev1c bin]# passing-variables-to-scripts-at-comamndline.sh Rustam Sariyev
+The following item was passed in to script at run time Rustam
+[root@kamilbabayev1c bin]# passing-variables-to-scripts-at-comamndline.sh "Rustam Sariyev"
+The following item was passed in to script at run time Rustam Sariyev
+[root@kamilbabayev1c bin]# passing-variables-to-scripts-at-comamndline.sh `expr 2 + 2`
+The following item was passed in to script at run time 4
+[root@kamilbabayev1c bin]# # Added script two value
+[root@kamilbabayev1c bin]# vim passing-variables-to-scripts-at-comamndline.sh
+[root@kamilbabayev1c bin]#
+[root@kamilbabayev1c bin]# passing-variables-to-scripts-at-comamndline.sh Rustam Sariyev
+The following item was passed in to script at run time Rustam Sariyev
+[root@kamilbabayev1c bin]# passing-variables-to-scripts-at-comamndline.sh Rustam Sariyev Test
+The following item was passed in to script at run time Rustam Sariyev
+[root@kamilbabayev1c bin]# cmdlinevar.sh rustam qazws123@
+The following Username is rustam and Password is qazws123@
+
