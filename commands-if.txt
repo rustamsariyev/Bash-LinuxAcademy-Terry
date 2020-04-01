@@ -1,0 +1,192 @@
+# simpleif.sh
+[root@kamilbabayev1c bin]# simpleif.sh
+Guess the Secret Number
+=======================
+
+Enter a Number Between 1 and 5:
+2
+You Guessed the Wrong Number!
+[root@kamilbabayev1c bin]# simpleif.sh
+Guess the Secret Number
+=======================
+
+Enter a Number Between 1 and 5:
+3
+You Guessed the Correct Number!
+
+################################
+
+testfile-if.sh
+
+[root@kamilbabayev1c bin]# ll
+total 88
+drwxr-xr-x. 4 root root 4096 Apr  1 13:27 .
+dr-xr-x---. 9 root root 4096 Apr  1 13:27 ..
+-rwxr-xr-x. 1 root root  237 Apr  1 08:18 arrays.sh
+-rwxr-xr-x. 1 root root  300 Apr  1 12:21 cmdlinevar.sh
+-rw-r--r--. 1 root root 1187 Apr  1 08:11 commands-array.txt
+-rw-r--r--. 1 root root 1338 Apr  1 12:23 commands-cmdlinevars.txt
+-rw-r--r--. 1 root root  359 Apr  1 13:22 commands-if.txt
+-rw-r--r--. 1 root root 2520 Mar 31 13:49 commands-shell-expansion.txt
+-rw-r--r--. 1 root root 1840 Mar 31 13:20 commands.txt
+-rw-r--r--. 1 root root 2123 Mar 31 14:19 commands-types-of-vairables
+-rwxr-xr-x. 1 root root  439 Mar 31 09:15 comments.sh
+-rw-r--r--. 1 root root 1115 Mar 31 14:00 data-types.txt
+drwxr-xr-x. 2 root root 4096 Apr  1 09:42 Exercises
+-rwxr-xr-x. 1 root root  186 Mar 31 10:02 exit-status.sh
+-rwxr-xr-x. 1 root root   89 Mar 31 12:08 expressions.sh
+drwxr-xr-x. 8 root root 4096 Apr  1 12:24 .git
+-rw-r--r--. 1 root root   26 Mar 31 08:27 README.md
+-rwxr-xr-x. 1 root root  306 Mar 31 13:37 readsamples.sh
+-rwxr-xr-x. 1 root root  346 Apr  1 13:22 simpleif.sh
+-rwxr-xr-x. 1 root root  391 Mar 31 09:34 substitution.sh
+-rwxr-xr-x. 1 root root  268 Apr  1 13:27 testfile-if.sh
+-rwxr-xr-x. 1 root root  312 Mar 31 08:41 varexample.sh
+[root@kamilbabayev1c bin]# testfile-if.sh
+Testing for the Existence of a File called mytext.txt
+File mytext.txt Doesn't Indeed Exist!
+[root@kamilbabayev1c bin]# touch mytext.txt
+[root@kamilbabayev1c bin]# testfile-if.sh
+Testing for the Existence of a File called mytext.txt
+File mytext.txt Does Indeed Exist!
+[root@kamilbabayev1c bin]#
+
+[root@kamilbabayev1c bin]# testfile-if.sh test
+Testing for the Existence of a File called test
+File test Doesn't Indeed Exist!
+[root@kamilbabayev1c bin]# testfile-if.sh mytextfile.txt
+Testing for the Existence of a File called mytextfile.txt
+File mytextfile.txt Doesn't Indeed Exist!
+[root@kamilbabayev1c bin]# testfile-if.sh mytext.txt
+Testing for the Existence of a File called mytext.txt
+File mytext.txt Does Indeed Exist!
+[root@kamilbabayev1c bin]# cat testfile-if.sh
+#!/bin/bash
+#
+# Tests for existence of indicated file name
+
+#FILENAME="mytext.txt"
+FILENAME="$1"
+echo "Testing for the Existence of a File called $FILENAME"
+
+if [[ -a $FILENAME ]]
+then
+  echo "File $FILENAME Does Indeed Exist!"
+else
+  echo "File $FILENAME Doesn't Indeed Exist!"
+fi
+
+############################
+# Added ! test condition
+##########################
+[root@kamilbabayev1c bin]# cat testfile-if.sh
+#!/bin/bash
+#
+# Tests for existence of indicated file name
+
+#FILENAME="mytext.txt"
+FILENAME="$1"
+echo "Testing for the Existence of a File called $FILENAME"
+
+
+#if [[ -a $FILENAME ]]
+# Test condition !
+if [[ ! -a $FILENAME ]]
+then
+  echo "File $FILENAME Does NOT Exist!"
+  #echo "File $FILENAME Does Indeed Exist!"
+#else
+#  echo "File $FILENAME Doesn't Indeed Exist!"
+fi
+########################################
+
+
+[root@kamilbabayev1c bin]# ll
+total 88
+drwxr-xr-x. 4 root root 4096 Apr  1 13:35 .
+dr-xr-x---. 9 root root 4096 Apr  1 13:35 ..
+-rwxr-xr-x. 1 root root  237 Apr  1 08:18 arrays.sh
+-rwxr-xr-x. 1 root root  300 Apr  1 12:21 cmdlinevar.sh
+-rw-r--r--. 1 root root 1187 Apr  1 08:11 commands-array.txt
+-rw-r--r--. 1 root root 1338 Apr  1 12:23 commands-cmdlinevars.txt
+-rw-r--r--. 1 root root 2743 Apr  1 13:32 commands-if.txt
+-rw-r--r--. 1 root root 2520 Mar 31 13:49 commands-shell-expansion.txt
+-rw-r--r--. 1 root root 1840 Mar 31 13:20 commands.txt
+-rw-r--r--. 1 root root 2123 Mar 31 14:19 commands-types-of-vairables
+-rwxr-xr-x. 1 root root  439 Mar 31 09:15 comments.sh
+-rw-r--r--. 1 root root 1115 Mar 31 14:00 data-types.txt
+drwxr-xr-x. 2 root root 4096 Apr  1 09:42 Exercises
+-rwxr-xr-x. 1 root root  186 Mar 31 10:02 exit-status.sh
+-rwxr-xr-x. 1 root root   89 Mar 31 12:08 expressions.sh
+drwxr-xr-x. 8 root root 4096 Apr  1 12:24 .git
+-rw-r--r--. 1 root root    0 Apr  1 13:28 mytext.txt
+-rw-r--r--. 1 root root   26 Mar 31 08:27 README.md
+-rwxr-xr-x. 1 root root  306 Mar 31 13:37 readsamples.sh
+-rwxr-xr-x. 1 root root  346 Apr  1 13:22 simpleif.sh
+-rwxr-xr-x. 1 root root  391 Mar 31 09:34 substitution.sh
+-rwxr-xr-x. 1 root root  371 Apr  1 13:35 testfile-if.sh
+-rwxr-xr-x. 1 root root  312 Mar 31 08:41 varexample.sh
+[root@kamilbabayev1c bin]# testfile-if.sh
+Testing for the Existence of a File called
+File  Does NOT Exist!
+[root@kamilbabayev1c bin]# testfile-if.sh mytext.txt
+Testing for the Existence of a File called mytext.txt
+[root@kamilbabayev1c bin]# testfile-if.sh myownfile.txt
+Testing for the Existence of a File called myownfile.txt
+File myownfile.txt Does NOT Exist!
+[root@kamilbabayev1c bin]#
+
+
+##########################################
+[root@kamilbabayev1c bin]# cat ifexpr.sh
+#!/bin/bash
+# Test multiple expressions in single if statement
+
+FILENAME=$1
+
+echo "Testing for file $FILENAME and readability"
+# And statement
+if [[ -f $FILENAME ]] && [[ -r $FILENAME ]]
+then
+  echo "File $FILENAME exists AND is readable"
+fi
+
+
+[root@kamilbabayev1c bin]# ifexpr.sh
+Testing for file  and readability
+[root@kamilbabayev1c bin]# ifexpr.sh mytext.txt
+Testing for file mytext.txt and readability
+File mytext.txt exists AND is readable
+[root@kamilbabayev1c bin]# ifexpr.sh mytestt.txt
+Testing for file mytestt.txt and readability
+
+
+##################################################
+[root@kamilbabayev1c bin]# cat ifstatement-using-or-conditional.sh
+#!/bin/bash
+
+for fname in "a.txt" "b.txt" "c.txt"
+do
+ echo $fname
+ # Or conditional
+ if [ "$fname" = "a.txt" ] | [ "$fname" = "c.txt" ]; then
+ echo "yes!"
+else
+ echo "no!"
+fi
+done
+[root@kamilbabayev1c bin]# ifstatement-using-or-conditional.sh
+a.txt
+no!
+b.txt
+no!
+c.txt
+yes!
+
+
+
+
+
+
+
+
