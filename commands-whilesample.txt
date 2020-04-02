@@ -1,0 +1,32 @@
+[root@kamilbabayev1c bin]# cat whilesample.sh
+#!/bin/bash
+#
+# While loop example
+
+echo "Enter the number of times to display te 'Hello World' message"
+
+read DISPLAYNUMBER
+
+COUNT=1
+
+while [[ "$COUNT" -le "$DISPLAYNUMBER" ]]
+ do
+   echo "Hello World - $COUNT "
+   COUNT="`expr $COUNT + 1`"
+done
+
+
+[root@kamilbabayev1c bin]# whilesample.sh
+Enter the number of times to display te 'Hello World' message
+3
+Hello World - 1
+Hello World - 2
+Hello World - 3
+[root@kamilbabayev1c bin]# whilesample.sh
+Enter the number of times to display te 'Hello World' message
+0
+[root@kamilbabayev1c bin]# whilesample.sh
+Enter the number of times to display te 'Hello World' message
+rr
+[root@kamilbabayev1c bin]#
+
