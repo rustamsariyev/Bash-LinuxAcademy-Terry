@@ -1,0 +1,47 @@
+[root@kamilbabayev1c bin]# rm  unknowfile.txt
+rm: cannot remove ‘unknowfile.txt’: No such file or directory
+[root@kamilbabayev1c bin]# rm  unknowfile.txt 2>/dev/null
+[root@kamilbabayev1c bin]# rm  unknowfile.txt 2>/dev/null && echo "File exists an was removed"
+[root@kamilbabayev1c bin]# rm  unknowfile.txt 2>/dev/null && echo "File exists an was removed" || echo "File does not exist and cannot be deleted"
+File does not exist and cannot be deleted
+[root@kamilbabayev1c bin]#
+
+
+[root@kamilbabayev1c bin]# chmod +x execution-operators.sh
+[root@kamilbabayev1c bin]# execution-operators.sh
+Enter a number between 1 and 5:
+3
+You entered the ODD value of 3
+[root@kamilbabayev1c bin]# execution-operators.sh
+Enter a number between 1 and 5:
+5
+You entered the ODD value of 5
+[root@kamilbabayev1c bin]# execution-operators.sh
+Enter a number between 1 and 5:
+2
+You entered a value of 2
+[root@kamilbabayev1c bin]#
+[root@kamilbabayev1c bin]# cat execution-operators.sh
+#!/bin/bash
+#
+# Execution operators example
+
+echo "Enter a number between 1 and 5: "
+read VALUE
+
+if [[ "$VALUE" -eq "1" ]] || [[ "$VALUE" -eq "3" ]] || [[ "$VALUE" -eq "5" ]]; then
+  echo "You entered the ODD value of $VALUE"
+else
+  echo "You entered a value of $VALUE"
+fi
+
+[root@kamilbabayev1c bin]# execution-operators.sh
+Enter a number between 1 and 5:
+1
+You entered the ODD value of 1
+[root@kamilbabayev1c bin]# execution-operators.sh
+Enter a number between 1 and 5:
+2
+You entered a value of 2
+[root@kamilbabayev1c bin]#
+
