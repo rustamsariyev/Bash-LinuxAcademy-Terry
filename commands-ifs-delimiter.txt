@@ -1,0 +1,50 @@
+[root@kamilbabayev1c bin]# cat ifsdelim.sh
+#!/bin/bash
+#
+# Delimiter example using IFS
+
+echo "Enter filename to parse: "
+read FILE
+
+echo "Enter the Delimiter: "
+read DELIM
+
+IFS="read -r $DELIM"
+
+while read -r CPU MEMORY DISK; do
+  echo "CPU: $CPU"
+  echo "Memory: $MEMORY"
+  echo "Disk: $DISK"
+done < "$FILE"
+[root@kamilbabayev1c bin]# cat pipedelim.txt
+i7 4Ghz|32gb|4TB
+[root@kamilbabayev1c bin]# cat spacedelim.txt
+i7 4Ghz 32gb 4TB
+[root@kamilbabayev1c bin]# cat semidelim.txt
+i7 4Ghz;32gb;4TB
+[root@kamilbabayev1c bin]# ifsdelim.sh
+Enter filename to parse:
+pipedelim.txt
+Enter the Delimiter:
+|
+CPU: i7
+Memory: 4Ghz
+Disk: 32gb|4TB
+[root@kamilbabayev1c bin]# ifsdelim.sh
+Enter filename to parse:
+spacedelim.txt
+Enter the Delimiter:
+
+CPU: i7
+Memory: 4Ghz
+Disk: 32gb 4TB
+[root@kamilbabayev1c bin]# ifsdelim.sh
+Enter filename to parse:
+semidelim.txt
+Enter the Delimiter:
+;
+CPU: i7
+Memory: 4Ghz
+Disk: 32gb;4TB
+[root@kamilbabayev1c bin]#
+
