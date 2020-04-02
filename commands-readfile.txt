@@ -1,0 +1,29 @@
+[root@kamilbabayev1c bin]# cat superheroes.txt
+Batman
+Superman
+Wonder Woman
+Flash
+Green Lantern
+Hawkman
+[root@kamilbabayev1c bin]# cat readfile.sh
+#!/bin/bash
+#
+# Simple file reading (non-binary) and displaying one line at a time
+
+echo "Enter a filename to read:"
+read FILE
+
+while read -r SUPERHERO; do
+  echo "Superhero Name: $SUPERHERO"
+done <$FILE
+[root@kamilbabayev1c bin]#  readfile.sh
+Enter a filename to read:
+superheroes.txt
+Superhero Name: Batman
+Superhero Name: Superman
+Superhero Name: Wonder Woman
+Superhero Name: Flash
+Superhero Name: Green Lantern
+Superhero Name: Hawkman
+[root@kamilbabayev1c bin]#
+
