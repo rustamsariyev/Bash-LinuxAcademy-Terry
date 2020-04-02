@@ -1,0 +1,70 @@
+[root@kamilbabayev1c bin]# cat casesample.sh
+#!/bin/bash
+#
+# Demo of the case statement
+
+echo "MAIN MENU"
+echo "==========="
+echo "1) Choice One"
+echo "2) Choice Two"
+echo "3) Choice Three"
+echo ""
+echo "Enter Choice: "
+
+read MENUCHOICE
+
+case "$MENUCHOICE" in
+  1)
+    echo "Congratualtions for Choosing the First Option" ;;
+  2)
+    echo "Choice 2 Chosen" ;;
+  3)
+    echo "Lst Choice Made" ;;
+  *)
+    echo "You chose unwisely" ;;
+esac
+[root@kamilbabayev1c bin]#
+
+
+
+[root@kamilbabayev1c bin]# casesample.sh
+MAIN MENU
+===========
+1) Choice One
+2) Choice Two
+3) Choice Three
+
+Enter Choice:
+test
+You chose unwisely
+[root@kamilbabayev1c bin]# casesample.sh
+MAIN MENU
+===========
+1) Choice One
+2) Choice Two
+3) Choice Three
+
+Enter Choice:
+2
+Choice 2 Chosen
+[root@kamilbabayev1c bin]# casesample.sh
+MAIN MENU
+===========
+1) Choice One
+2) Choice Two
+3) Choice Three
+
+Enter Choice:
+
+You chose unwisely
+[root@kamilbabayev1c bin]# casesample.sh
+MAIN MENU
+===========
+1) Choice One
+2) Choice Two
+3) Choice Three
+
+Enter Choice:
+3
+Lst Choice Made
+
