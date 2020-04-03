@@ -1,0 +1,34 @@
+[root@kamilbabayev1c bin]# cat funcparms.sh
+#!/bin/bash
+#
+# This demo is for functional parameter passing
+
+# Global variable
+USERNAME=$1
+
+# Function definitions - start
+
+# Calculate age in days
+funcAgeIndays () {
+   echo "Hello $USERNAME, You are $1 Years Old."
+   echo "That makes you approximately `expr $1 \* 365` days old..."
+}
+
+# Funtion definitions - stop
+
+# Script - start
+
+echo "Enter Your Age: "
+
+read USERAGE
+
+# Calculate the number of days
+funcAgeIndays $USERAGE
+
+[root@kamilbabayev1c bin]# funcparms.sh rustam
+Enter Your Age:
+25
+Hello rustam, You are 25 Years Old.
+That makes you approximately 9125 days old...
+[root@kamilbabayev1c bin]#
+
