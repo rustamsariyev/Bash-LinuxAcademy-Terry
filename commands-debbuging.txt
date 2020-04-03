@@ -1,0 +1,113 @@
+[root@kamilbabayev1c bin]# cat env.sh
+#!/bin/bash
+#
+
+
+echo "This script will give us envirenment information"
+echo "================================================"
+echo ""
+echo "Hello Username: $USER"
+echo ""
+echo "Your Home Directory is: $HOME"
+echo ""
+echo "Your History File Will Ignore: $HISTCONTROL"
+echo ""
+echo "Your Terminal Session Type is: $TERM"
+echo ""
+[root@kamilbabayev1c bin]# env.sh
+This script will give us envirenment information
+================================================
+
+Hello Username: root
+
+Your Home Directory is: /root
+
+Your History File Will Ignore: ignoredups
+
+Your Terminal Session Type is: xterm
+
+[root@kamilbabayev1c bin]# bash -x env.sh
++ echo 'This script will give us envirenment information'
+This script will give us envirenment information
++ echo ================================================
+================================================
++ echo ''
+
++ echo 'Hello Username: root'
+Hello Username: root
++ echo ''
+
++ echo 'Your Home Directory is: /root'
+Your Home Directory is: /root
++ echo ''
+
++ echo 'Your History File Will Ignore: ignoredups'
+Your History File Will Ignore: ignoredups
++ echo ''
+
++ echo 'Your Terminal Session Type is: xterm'
+Your Terminal Session Type is: xterm
++ echo ''
+
+[root@kamilbabayev1c bin]# vim env.sh
+[root@kamilbabayev1c bin]#
+[root@kamilbabayev1c bin]# vim readfile.sh
+[root@kamilbabayev1c bin]#
+[root@kamilbabayev1c bin]# git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       env.sh
+nothing added to commit but untracked files present (use "git add" to track)
+[root@kamilbabayev1c bin]#
+[root@kamilbabayev1c bin]# cp readfile.sh debugging-readfile.sh
+[root@kamilbabayev1c bin]# vim debugging-readfile.sh
+[root@kamilbabayev1c bin]# cat debugging-readfile.sh
+#!/bin/bash
+#
+# Simple file reading (non-binary) and displaying one line at a time
+
+echo "Enter a filename to read:"
+
+# DEBUG START
+set -x
+
+read FILE
+
+while read -r SUPERHERO; do
+  echo "Superhero Name: $SUPERHERO"
+done <$FILE
+
+# DEBUG STOPS
+set +x
+
+[root@kamilbabayev1c bin]# debugging-readfile.sh
+Enter a filename to read:
++ read FILE
+superheroes.txt
++ read -r SUPERHERO
++ echo 'Superhero Name: Batman'
+Superhero Name: Batman
++ read -r SUPERHERO
++ echo 'Superhero Name: Superman'
+Superhero Name: Superman
++ read -r SUPERHERO
++ echo 'Superhero Name: Wonder Woman'
+Superhero Name: Wonder Woman
++ read -r SUPERHERO
++ echo 'Superhero Name: Flash'
+Superhero Name: Flash
++ read -r SUPERHERO
++ echo 'Superhero Name: Green Lantern'
+Superhero Name: Green Lantern
++ read -r SUPERHERO
++ echo 'Superhero Name: Hawkman'
+Superhero Name: Hawkman
++ read -r SUPERHERO
++ echo 'Superhero Name: File Was Read On: Thu Apr  2 13:30:11 UTC 2020'
+Superhero Name: File Was Read On: Thu Apr  2 13:30:11 UTC 2020
++ read -r SUPERHERO
++ set +x
+[root@kamilbabayev1c bin]#
+
