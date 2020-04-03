@@ -1,0 +1,53 @@
+[root@kamilbabayev1c bin]# cat errorexit.sh
+#!/bin/bash
+#
+# Demo of using error handling with exit
+
+echo "Change to a directory and list the contents"
+DIRECTORY=$1
+
+
+cd $DIRECTORY 2> /dev/null
+
+if [[ "$?" = "0" ]] ; then
+  echo "We can change into the directory $DIRECTORY, and here are the contents"
+  echo "`ls -la`"
+else
+  echo "Cannot change directories, exiting with an error and no listing"
+  exit 111
+fi
+
+[root@kamilbabayev1c bin]# ls -ld Exercises
+drwxr-xr-x. 2 root root 4096 Apr  2 15:57 Exercises
+[root@kamilbabayev1c bin]# errorexit.sh Exercises
+Change to a directory and list the contents
+We can change into the directory Exercises, and here are the contents
+total 92
+drwxr-xr-x. 2 root root 4096 Apr  2 15:57 .
+drwxr-xr-x. 4 root root 4096 Apr  3 08:06 ..
+-rwxr-xr-x. 1 root root  396 Apr  2 12:07 casestatement.sh
+-rwxr-xr-x. 1 root root  389 Apr  1 09:32 command-substitution.sh
+-rwxr-xr-x. 1 root root  145 Apr  1 09:01 dev-null.sh
+-rwxr-xr-x. 1 root root  335 Apr  1 08:37 display-environment-variables.sh
+-rwxr-xr-x. 1 root root   92 Apr  1 09:19 evaluating-arthmetic-expressions.sh
+-rwxr-xr-x. 1 root root  251 Apr  1 09:15 exit-status-types.sh
+-rwxr-xr-x. 1 root root  256 Apr  2 15:25 filedesc-and-handles.sh
+-rwxr-xr-x. 1 root root  239 Apr  2 12:00 forstatement.sh
+-rwxr-xr-x. 1 root root  256 Apr  2 15:31 if-and-delimiting.sh
+-rwxr-xr-x. 1 root root  296 Apr  2 11:49 ifstatement.sh
+-rwxr-xr-x. 1 root root  420 Apr  2 11:54 ifthenesle.sh
+-rwxr-xr-x. 1 root root  304 Apr  1 09:37 interactive-scripting.sh
+-rwxr-xr-x. 1 root root  178 Apr  2 11:45 passing-var-scrtipt-cmdline.sh
+-rw-r--r--. 1 root root   17 Apr  2 15:28 pipedelim.txt
+-rwxr-xr-x. 1 root root  206 Apr  2 15:15 reading-files.sh
+-rwxr-xr-x. 1 root root  306 Apr  1 08:43 setting-and-usin-variables-in-scripts.sh
+-rw-r--r--. 1 root root  151 Apr  2 15:26 superheroes.txt
+-rwxr-xr-x. 1 root root  383 Apr  2 15:57 traps-and-signals.sh
+-rwxr-xr-x. 1 root root  238 Apr  1 09:42 using-arrays.sh
+-rwxr-xr-x. 1 root root  430 Apr  1 08:50 using-comments.sh
+-rwxr-xr-x. 1 root root  238 Apr  2 12:21 whileloop.sh
+[root@kamilbabayev1c bin]# errorexit.sh supersdjsjd
+Change to a directory and list the contents
+Cannot change directories, exiting with an error and no listing
+[root@kamilbabayev1c bin]#
+
