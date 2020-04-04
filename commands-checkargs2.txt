@@ -1,0 +1,22 @@
+[root@kamilbabayev1c bin]# cat checkargs2.sh
+#!/bin/bash
+#
+# Demo checking command line parameters
+
+# If I did not ger three : 3?
+
+: ${3?"USAGE: $1 ARGUMENT $2 ARGUMENT $3 ARGUMENT"}
+
+echo "I got all three!"
+
+
+[root@kamilbabayev1c bin]# checkargs2.sh
+/root/bin/checkargs2.sh: line 7: 3: USAGE:  ARGUMENT  ARGUMENT  ARGUMENT
+[root@kamilbabayev1c bin]# checkargs2.sh 1
+/root/bin/checkargs2.sh: line 7: 3: USAGE: 1 ARGUMENT  ARGUMENT  ARGUMENT
+[root@kamilbabayev1c bin]# checkargs2.sh 1 2
+/root/bin/checkargs2.sh: line 7: 3: USAGE: 1 ARGUMENT 2 ARGUMENT  ARGUMENT
+[root@kamilbabayev1c bin]# checkargs2.sh 1 2 3
+I got all three!
+[root@kamilbabayev1c bin]#
+

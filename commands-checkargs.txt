@@ -1,0 +1,20 @@
+[root@kamilbabayev1c bin]# cat checkargs.sh
+#!/bin/bash
+#
+# Demo check arguments number
+
+if [[ "$#" != "3" ]]; then
+   echo "USAGE: checkargs.sh [parm1] [parm2] [parm3] "
+   exit 300
+fi
+
+echo "I live! I got what I needed!"
+
+[root@kamilbabayev1c bin]# checkargs.sh 1 2 3
+I live! I got what I needed!
+[root@kamilbabayev1c bin]# checkargs.sh 1
+USAGE: checkargs.sh [parm1] [parm2] [parm3]
+[root@kamilbabayev1c bin]# checkargs.sh
+USAGE: checkargs.sh [parm1] [parm2] [parm3]
+[root@kamilbabayev1c bin]#
+
