@@ -1,0 +1,124 @@
+[root@kamilbabayev1c bin]# cat simpleinputbox.sh
+#!/bin/bash
+#
+# Simple demo of an input dialog box
+
+# Global variables / default values
+INPUTBOX=${INPUTBOX=dialog}
+TITLE="Default"
+MESSAGE="Something to display"
+XCOORD=10
+YCOORD=20
+
+# Function declarations - start
+
+# Display the input box
+funcDisplayInputBox () {
+   $INPUTBOX --title "$1" --inputbox "$2" "$3" "$4" 2>tmp-inputbox.txt
+}
+
+# Function declarations - stop
+
+# Script - start
+
+funcDisplayInputBox "Display File Name" "Which file in the current dicrectory do you want to display?" "20" "40"
+
+if [[ "`cat tmp-inputbox.txt`" != "" ]]; then
+   cat "`cat tmp-inputbox.txt`"
+else
+   echo "Nothing to do"
+fi
+
+# Script - stop
+
+[root@kamilbabayev1c bin]# simpleinputbox.sh
+
+
+
+
+
+
+
+
+
+
+
+                    lqqqqqqqqqDisplay File Nameqqqqqqqqqqqqk
+                    x Which file in the current dicrectory x
+                    x do you want to display?              x
+                    x lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk x
+                    x xchoice.txt                        x x
+                    x mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    tqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqu
+                    x       <  OK  >    <Cancel>           x
+                    mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj
+
+
+
+
+
+
+
+
+
+
+
+
+2[root@kamilbabayev1c bin]# simpleinputbox.sh
+
+
+
+
+
+
+
+
+
+
+
+                    lqqqqqqqqqDisplay File Nameqqqqqqqqqqqqk
+                    x Which file in the current dicrectory x
+                    x do you want to display?              x
+                    x lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk x
+                    x xsjdhfkshdfksd                     x x
+                    x mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    x                                      x
+                    tqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqu
+                    x       <  OK  >    <Cancel>           x
+                    mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj
+
+
+
+
+
+
+
+
+
+
+
+
+cat: sjdhfkshdfksd: No such file or directory
+[root@kamilbabayev1c bin]# simpleinputbox.sh
+
